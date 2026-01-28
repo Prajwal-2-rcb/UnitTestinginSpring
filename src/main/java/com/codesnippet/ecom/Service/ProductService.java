@@ -27,14 +27,15 @@ public class ProductService{
 
     public Product addProduct(Product product) {
         log.info("adding product in DB");
-//        boolean validation = validateProductName(product.getName());
-//        if(validation) {
+        boolean validation = validateProductName(product.getName());
+        if(validation) {
+
             Product savedProduct = productRepository.save(product);
             return savedProduct;
-//        }
-//        else{
-//            throw new RuntimeException("Invalid Name Of Product");
-//        }
+        }
+        else{
+            throw new RuntimeException("Invalid Name Of Product");
+        }
 
     }
 
